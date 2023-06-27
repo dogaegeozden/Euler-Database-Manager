@@ -1,0 +1,9 @@
+mysql-connector-python==8.0.32
+numpy==1.24.2
+pandas==1.5.3
+protobuf==3.20.3
+PySide2==5.15.2.1
+python-dateutil==2.8.2
+pytz==2022.7.1
+shiboken2==5.15.2.1
+six==1.16.0

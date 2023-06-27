@@ -1,0 +1,3 @@
+{
+    "files": ["user_interfaces/create_table_dialog_win.ui","user_interfaces/password_changing.ui","user_interfaces/credits_dialog.ui","user_interfaces/modify_the_data.ui","user_interfaces/account_control.ui","user_interfaces/permissions_dialog.ui","user_interfaces/resources.qrc","user_interfaces/modify_the_db.ui","user_interfaces/login_win_bckup.ui","resources.qrc","user_interfaces/database_manager.ui","user_interfaces/log_in_win.ui"]
+}

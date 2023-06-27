@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CreditsDialog</class>
+ <widget class="QDialog" name="CreditsDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>208</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Euler Database Manager</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#centralwidget {
+}</string>
+  </property>
+  <widget class="QWidget" name="centralWidget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>401</width>
+     <height>211</height>
+    </rect>
+   </property>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>70</y>
+      <width>201</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Developed by Tamrinotte Inc.</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+  </widget>
+  <action name="actionUser_Name_Generator">
+   <property name="text">
+    <string>User Name Generator</string>
+   </property>
+  </action>
+  <action name="actionPassword_Generator">
+   <property name="text">
+    <string>Password Generator</string>
+   </property>
+  </action>
+  <action name="actionPassword_Manager">
+   <property name="text">
+    <string>Password Manager</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

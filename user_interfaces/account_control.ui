@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AccountControlDialog</class>
+ <widget class="QDialog" name="AccountControlDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>820</width>
+    <height>680</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Account Control Dialog</string>
+  </property>
+  <property name="toolTip">
+   <string>https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html</string>
+  </property>
+  <property name="statusTip">
+   <string/>
+  </property>
+  <widget class="QLabel" name="list_of_accounts_header_label">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>5</y>
+     <width>110</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>List of Accounts</string>
+   </property>
+  </widget>
+  <widget class="QListView" name="list_of_accounts_list_view">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>40</y>
+     <width>370</width>
+     <height>290</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="delete_the_account_button">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>240</y>
+     <width>90</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Delete</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="add_an_account_button">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>110</y>
+     <width>90</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="statusTip">
+    <string/>
+   </property>
+   <property name="text">
+    <string>Create</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="username_line_edit">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>70</y>
+     <width>180</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>Hint: Enter a username that is already exist to change the account's password.</string>
+   </property>
+   <property name="statusTip">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="password_line_edit">
+   <property name="geometry">
+    <rect>
+     <x>620</x>
+     <y>70</y>
+     <width>180</width>
+     <height>25</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="username_label">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>40</y>
+     <width>110</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Username</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="password_label">
+   <property name="geometry">
+    <rect>
+     <x>620</x>
+     <y>40</y>
+     <width>110</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Password</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="create_delete_update_an_account_label">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>5</y>
+     <width>381</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Create/Delete/Update An Account</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="selected_account_label">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>200</y>
+     <width>140</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#selected_account_label {
+	font-weight: bold;
+}</string>
+   </property>
+   <property name="text">
+    <string>Selected Account: </string>
+   </property>
+  </widget>
+  <widget class="QListView" name="list_of_the_users_permissions_list_view">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>380</y>
+     <width>370</width>
+     <height>290</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="list_of_the_users_permissions_label">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>350</y>
+     <width>200</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>List of The User's Permissions</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="grant_revoke_permissions_label">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>350</y>
+     <width>380</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Grant/Revoke Permissions</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="table_name_line_edit">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>410</y>
+     <width>250</width>
+     <height>25</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="table_name_label">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>380</y>
+     <width>115</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Table Name</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="permission_names">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>440</y>
+     <width>230</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Permission Name/s</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="revoke_permissions_button">
+   <property name="geometry">
+    <rect>
+     <x>500</x>
+     <y>590</y>
+     <width>90</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Revoke</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="create_an_account_info_label">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>140</y>
+     <width>410</width>
+     <height>55</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#create_an_account_info_label {
+	color: red;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="grant_permissions_button">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>590</y>
+     <width>90</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Grant</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="permissions_line_edit">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>470</y>
+     <width>340</width>
+     <height>70</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="permissions_hint_label">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>550</y>
+     <width>371</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Separate the permissions with ','. Ex: SELECT, CREATE</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="delete_the_account_info_label">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>270</y>
+     <width>411</width>
+     <height>55</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#delete_the_account_info_label {
+	color: red;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="selected_account_name_label">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>200</y>
+     <width>200</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="permissions_info_label">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>610</y>
+     <width>410</width>
+     <height>55</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#permissions_info_label {
+	color: red;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="magnifier_button">
+   <property name="geometry">
+    <rect>
+     <x>780</x>
+     <y>550</y>
+     <width>30</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/icons/magnifier.png</normaloff>:/icons/magnifier.png</iconset>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

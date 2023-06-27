@@ -1,0 +1,14 @@
+[Desktop Entry]
+# The type of the thing this desktop file refers to (e.g. can beLink)
+Type=Application
+# The application name.
+Name=Euler Database Manager
+# Tooltip comment to show in menus.
+Comment=A database manager application which is allowing users to control a MySQL database from a grafical user interface.
+# The path (folder) in which the executable is run
+Path=/opt/euler_database_manager
+# The executable (can include arguments)
+Exec=/opt/euler_database_manager/euler_database_manager
+# The icon for the entry, use the target filesystem path.
+Icon=/usr/share/icons/hicolor/scalable/apps/euler_database_manager_rounded_corners.png
+

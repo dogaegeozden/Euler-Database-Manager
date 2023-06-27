@@ -1,0 +1,10 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource prefix="/icons">
+        <file alias="magnifier.png">icons/magnifier.png</file>
+    </qresource>
+    
+    <qresource prefix="/logos">
+        <file alias="euler_database_manager.png">logos/euler_database_manager.png</file>
+    </qresource>
+</RCC>
