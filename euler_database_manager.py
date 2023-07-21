@@ -1617,10 +1617,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         mysql_show_grants_cursor = mysql_database_connection.cursor()
 
         # Executing show grants sql command using python
-        mysql_show_grants_cursor.execute(f'SHOW GRANTS FOR {user}@{host};')
+        mysql_show_grants_cursor.execute(f'SHOW GRANTS FOR {user}@"%";')
 
         # Fetching all the data which is generated with the cursor execution
         global list_of_user_permissions
+        
         list_of_user_permissions = [ str(permission[0]) for permission in mysql_show_grants_cursor.fetchall() ]
 
         # Creating global dictionary for all of the mysql permissons in the euler database manager.
