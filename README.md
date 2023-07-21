@@ -24,6 +24,8 @@ Euler Database Manager allows users manage MySQL databases without having to wri
 
 ![AppScreenShot](https://raw.githubusercontent.com/dogaegeozden/Euler-Database-Manager/main/app_screen_shots/app_sc.png)
 
+![AppScreenShot2](https://raw.githubusercontent.com/dogaegeozden/Euler-Database-Manager/main/app_screen_shots/app_sc_2.png)
+
 <br>
 
 ---
@@ -55,3 +57,5 @@ Euler Database Manager kullanıcıların kod yazmadan MySQL veri bankalarını k
 
 
 ![AppScreenShot](https://raw.githubusercontent.com/dogaegeozden/Euler-Database-Manager/main/app_screen_shots/app_sc.png)
+
+![AppScreenShot2](https://raw.githubusercontent.com/dogaegeozden/Euler-Database-Manager/main/app_screen_shots/app_sc_2.png)
