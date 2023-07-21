@@ -1613,78 +1613,82 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # Connecting the list_of_tables_filter with the self.list_of_tables_view_proxy_model.setFilterFixedString function as the function will going to trigger with a text change signal.
         self.list_of_tables_filter.textChanged.connect(self.list_of_tables_view_proxy_model.setFilterFixedString)
 
-        # creating a cursor to show grants
-        mysql_show_grants_cursor = mysql_database_connection.cursor()
+        try:
+            # creating a cursor to show grants
+            mysql_show_grants_cursor = mysql_database_connection.cursor()
 
-        # Executing show grants sql command using python
-        mysql_show_grants_cursor.execute(f'SHOW GRANTS FOR {user}@"%";')
+            # Executing show grants sql command using python
+            mysql_show_grants_cursor.execute(f'SHOW GRANTS FOR {user}@{host};')
 
-        # Fetching all the data which is generated with the cursor execution
-        global list_of_user_permissions
-        
-        list_of_user_permissions = [ str(permission[0]) for permission in mysql_show_grants_cursor.fetchall() ]
+            # Fetching all the data which is generated with the cursor execution
+            global list_of_user_permissions
+            
+            list_of_user_permissions = [ str(permission[0]) for permission in mysql_show_grants_cursor.fetchall() ]
 
-        # Creating global dictionary for all of the mysql permissons in the euler database manager.
-        global mysql_permissions_dictionary
+            # Creating global dictionary for all of the mysql permissons in the euler database manager.
+            global mysql_permissions_dictionary
 
-        mysql_permissions_dictionary = {
-            # List of all permissions with explanations -> https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_insert
-            ## All permission -> These privilege specifiers are shorthand for “all privileges available at a given privilege level” (except GRANT OPTION).
-            'ALL': False,
-            ## Create role permission -> Similar to create user but you can only use to create user accounts.
-            'CREATE ROLE': False,
-            ## Create User Permission -> Enables use of the ALTER USER, CREATE ROLE, CREATE USER, DROP ROLE, DROP USER, RENAME USER, and REVOKE ALL PRIVILEGES statements.
-            'CREATE USER': False,
-            ## Drop role permissions -> Similar to drop but you can only use it delete user accounts.
-            'DROP ROLE': False,
-            ## Select User Permission -> Required permission to display user accounts. This is a select permission on mysql.user table.
-            'select_user_permission': False,
-            ## Alter table permission -> Enables use of the ALTER TABLE statement to change the structure of tables. ALTER TABLE also requires the CREATE and INSERT privileges. Renaming a table requires ALTER and DROP on the old table, CREATE, and INSERT on the new table.
-            'ALTER': False,
-            ## Create table permission -> Enables use of statements that create new databases and tables.
-            'CREATE': False,
-            ## Drop permission -> Enables use of statements that drop (remove) existing databases, tables, and views. The DROP privilege is required to use the ALTER TABLE ... DROP PARTITION statement on a partitioned table. The DROP privilege is also required for TRUNCATE TABLE.
-            'DROP': False,
-            ## Grant option permission -> Enables you to grant to or revoke from other users those privileges that you yourself possess.
-            'GRANT OPTION': False,
-            ## Index permission -> to create data structures that imporves the speed of operations in a table.
-            'INDEX': False,
-            ## Insert permission -> Enables rows to be inserted into tables in a database. INSERT is also required for the ANALYZE TABLE, OPTIMIZE TABLE, and REPAIR TABLE table-maintenance statements.
-            'INSERT': False,
-            ## References permission -> Creation of a foreign key constraint requires the REFERENCES privilege for the parent table.
-            'REFERENCES': False,
-            ## Select permission -> Enables rows to be selected from tables in a database. SELECT statements require the SELECT privilege only if they actually access tables. Some SELECT statements do not access tables and can be executed without permission for any database.
-            'SELECT': False,
-            ## Update permission -> Enables rows to be updated in tables in a database.
-            'UPDATE': False,
-            ## Delete table permission -> Enables rows to be deleted from tables in a database.
-            'DELETE': False,
-        }
+            mysql_permissions_dictionary = {
+                # List of all permissions with explanations -> https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_insert
+                ## All permission -> These privilege specifiers are shorthand for “all privileges available at a given privilege level” (except GRANT OPTION).
+                'ALL': False,
+                ## Create role permission -> Similar to create user but you can only use to create user accounts.
+                'CREATE ROLE': False,
+                ## Create User Permission -> Enables use of the ALTER USER, CREATE ROLE, CREATE USER, DROP ROLE, DROP USER, RENAME USER, and REVOKE ALL PRIVILEGES statements.
+                'CREATE USER': False,
+                ## Drop role permissions -> Similar to drop but you can only use it delete user accounts.
+                'DROP ROLE': False,
+                ## Select User Permission -> Required permission to display user accounts. This is a select permission on mysql.user table.
+                'select_user_permission': False,
+                ## Alter table permission -> Enables use of the ALTER TABLE statement to change the structure of tables. ALTER TABLE also requires the CREATE and INSERT privileges. Renaming a table requires ALTER and DROP on the old table, CREATE, and INSERT on the new table.
+                'ALTER': False,
+                ## Create table permission -> Enables use of statements that create new databases and tables.
+                'CREATE': False,
+                ## Drop permission -> Enables use of statements that drop (remove) existing databases, tables, and views. The DROP privilege is required to use the ALTER TABLE ... DROP PARTITION statement on a partitioned table. The DROP privilege is also required for TRUNCATE TABLE.
+                'DROP': False,
+                ## Grant option permission -> Enables you to grant to or revoke from other users those privileges that you yourself possess.
+                'GRANT OPTION': False,
+                ## Index permission -> to create data structures that imporves the speed of operations in a table.
+                'INDEX': False,
+                ## Insert permission -> Enables rows to be inserted into tables in a database. INSERT is also required for the ANALYZE TABLE, OPTIMIZE TABLE, and REPAIR TABLE table-maintenance statements.
+                'INSERT': False,
+                ## References permission -> Creation of a foreign key constraint requires the REFERENCES privilege for the parent table.
+                'REFERENCES': False,
+                ## Select permission -> Enables rows to be selected from tables in a database. SELECT statements require the SELECT privilege only if they actually access tables. Some SELECT statements do not access tables and can be executed without permission for any database.
+                'SELECT': False,
+                ## Update permission -> Enables rows to be updated in tables in a database.
+                'UPDATE': False,
+                ## Delete table permission -> Enables rows to be deleted from tables in a database.
+                'DELETE': False,
+            }
 
-        # Creating a global variable called mysql_permissions_key_str8ings
-        global mysql_permissions_keys_string
-        # Creating an object called list_of_mysql_permission_keys from the mysql_permissions_dictionary's keys.
-        list_of_mysql_permission_keys = list(mysql_permissions_dictionary.keys())
-        # Removing the select_user_permission key value pair from the dictionary.
-        list_of_mysql_permission_keys.remove('select_user_permission')
-        # Creating a string from by joining each key in the list_of_mysql_permissions_keys with to one another wtih a '|'  
-        mysql_permissions_keys_string = '|'.join(list_of_mysql_permission_keys)
+            # Creating a global variable called mysql_permissions_key_str8ings
+            global mysql_permissions_keys_string
+            # Creating an object called list_of_mysql_permission_keys from the mysql_permissions_dictionary's keys.
+            list_of_mysql_permission_keys = list(mysql_permissions_dictionary.keys())
+            # Removing the select_user_permission key value pair from the dictionary.
+            list_of_mysql_permission_keys.remove('select_user_permission')
+            # Creating a string from by joining each key in the list_of_mysql_permissions_keys with to one another wtih a '|'  
+            mysql_permissions_keys_string = '|'.join(list_of_mysql_permission_keys)
 
-        # Looping through each permission in the list of the user's permissions
-        for tp in list_of_user_permissions:
-            # Checking if the user has the select permission on mysql.user or if the user has all permissions on mysql.user table
-            if 'SELECT' in tp and 'mysql' in tp and 'user' in tp or 'ALL' in tp and 'mysql' in tp and 'user' in tp:
-                mysql_permissions_dictionary['select_user_permission'] = True
+            # Looping through each permission in the list of the user's permissions
+            for tp in list_of_user_permissions:
+                # Checking if the user has the select permission on mysql.user or if the user has all permissions on mysql.user table
+                if 'SELECT' in tp and 'mysql' in tp and 'user' in tp or 'ALL' in tp and 'mysql' in tp and 'user' in tp:
+                    mysql_permissions_dictionary['select_user_permission'] = True
 
 
-        # Checking if the user has the selectUserPerm(select permission on mysql.user)
-        if mysql_permissions_dictionary['select_user_permission'] != True:
-            self.account_control_button.setDisabled(False)
+            # Checking if the user has the selectUserPerm(select permission on mysql.user)
+            if mysql_permissions_dictionary['select_user_permission'] != True:
+                self.account_control_button.setDisabled(False)
 
-        # Checking if the user doesn't have the 
-        else:
-            # Connecting show_account_control_dialog function with the account_control_button as the function will going to trigger with a press signal.
-            self.account_control_button.pressed.connect(self.show_account_control_dialog)
+            # Checking if the user doesn't have the 
+            else:
+                # Connecting show_account_control_dialog function with the account_control_button as the function will going to trigger with a press signal.
+                self.account_control_button.pressed.connect(self.show_account_control_dialog)
+
+        except:
+            debug("Error: SHOW GRANTS FOR {user}@{host};")
 
     def show_modify_database_dialog(self):
         """A function which shows the modify the database dialog."""
